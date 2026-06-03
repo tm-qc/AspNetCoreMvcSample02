@@ -1,0 +1,74 @@
+﻿@using Nissy.ViewModels.Driver
+@* ===== 運転者マスタ 新規登録・編集 フォームテーブル 部分ビュー ===== *@
+@* Create.cshtml / Edit.cshtml 両方から呼び出す *@
+@model Nissy.ViewModels.Driver.CreateEditViewModel
+
+<div class="driver-form-wrapper">
+    <table class="driver-form-table">
+        <tbody>
+            <tr>
+                <th class="driver-form-label">氏名</th>
+                <td>
+                    <input asp-for="Name" class="driver-form-input" type="text" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th class="driver-form-label">生年月日</th>
+                <td>
+                    <input asp-for="BirthDate" class="driver-form-input" type="text" />
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th class="driver-form-label">運転者登録日</th>
+                <td>
+                    <input asp-for="RegistDate" class="driver-form-input" type="text" />
+                    <span asp-validation-for="RegistDate" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th class="driver-form-label">その他</th>
+                <td>
+                    <input asp-for="Other" class="driver-form-input" type="text" />
+                    <span asp-validation-for="Other" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th class="driver-form-label">運転免許証番号</th>
+                <td>
+                    <input asp-for="LicenseNo" class="driver-form-input" type="text" />
+                    <span asp-validation-for="LicenseNo" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th class="driver-form-label">有効期限</th>
+                <td>
+                    <input asp-for="ExpireDate" class="driver-form-input" type="text" />
+                    <span asp-validation-for="ExpireDate" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th class="driver-form-label">免許年月日</th>
+                <td>
+                    <input asp-for="LicenseDate" class="driver-form-input" type="text" />
+                    <span asp-validation-for="LicenseDate" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th class="driver-form-label">免許の種類</th>
+                <td>
+                    <input asp-for="LicenseKind" class="driver-form-input" type="text" />
+                    <span asp-validation-for="LicenseKind" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th class="driver-form-label">免許の条件</th>
+                <td>
+                    <input asp-for="LicenseCondition" class="driver-form-input" type="text" />
+                    <span asp-validation-for="LicenseCondition" class="text-danger"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,16 @@
+﻿@{
+    var statusCode = ViewData["StatusCode"];
+}
+
+<h2>@statusCode エラーが発生しました</h2>
+
+@if ((int?)statusCode == 404)
+{
+    <p>お探しのページが見つかりませんでした。</p>
+}
+else
+{
+    <p>予期せぬエラーが発生しました。</p>
+}
+
+<a href="/sign_in">ログイン画面へ戻る</a>

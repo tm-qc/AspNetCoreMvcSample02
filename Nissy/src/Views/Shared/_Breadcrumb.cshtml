@@ -1,0 +1,32 @@
+﻿@* ===== 共通パンくず 部分ビュー ===== *@
+@using Nissy.Helpers
+@{
+    var items = BreadcrumbHelper.BuildBreadcrumb(Context);
+}
+
+@if (items.Any())
+{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            @* 🏠 ホームは常に固定表示 *@
+            <li class="breadcrumb-item">
+                <a href="/top">🏠</a>
+            </li>
+            @for (int i = 0; i < items.Count; i++)
+            {
+                var item = items[i];
+
+                if (i == items.Count - 1)
+                {
+                    <li class="breadcrumb-item active">@item.Title</li>
+                }
+                else
+                {
+                    <li class="breadcrumb-item">
+                        <a href="@item.Url">@item.Title</a>
+                    </li>
+                }
+            }
+        </ol>
+    </nav>
+}

@@ -1,0 +1,24 @@
+﻿@* ===== ページヘッダーブロック ===== *@
+<div class="driver-page-header">
+
+    @* パンくずリスト *@
+    @*
+        TODO：パンくず共通ビューの記載場所
+        「共通ヘッダー」と別の「個別ページ内ヘッダー」になってる
+        これは全体見えてきてヘッダーの置き方整理共通化できるなら、後で変えるかも
+    *@
+    <nav class="driver-breadcrumb">
+        <partial name="_Breadcrumb" />
+    </nav>
+
+    @* タイトル＋新規登録ボタン *@
+    <div class="driver-title-row">
+        <h2 class="driver-title">@ViewData["Title"]</h2>
+        @if (ViewData["ShowNewButton"] as bool? == true)
+        {
+            <a asp-controller="Driver" asp-action="Create" class="btn btn-warning driver-new-btn">新規登録</a>
+        }
+        
+    </div>
+
+</div>

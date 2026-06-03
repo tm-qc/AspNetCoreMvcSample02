@@ -1,0 +1,185 @@
+﻿/*個別ページのCSS*/
+
+/* ===== drivers ページ専用CSS ===== */
+
+/* ===== 運転者マスタ一覧 ===== */
+
+/* ページヘッダーブロック */
+.driver-page-header {
+    background-color: #f9f9f9;
+    padding: 6px 10px 10px;
+    margin-bottom: 16px;
+}
+
+.driver-breadcrumb {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.driver-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.driver-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.driver-new-btn {
+    font-weight: bold;
+    min-width: 100px;
+}
+
+/* メインコンテンツブロック */
+.driver-main-content {
+    /* 必要に応じてpaddingなど追加 */
+}
+
+.driver-count {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.driver-pager {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #0066cc;
+    margin-bottom: 4px;
+}
+
+/* テーブルを囲むラッパー：縦スクロール時にヘッダーを固定するため */
+.driver-table-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+.driver-table {
+    margin-bottom: 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* ヘッダーを常に表示（スクロールしても固定） */
+.driver-thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #f5c6a0;
+    border: 1px solid #ccc;
+    text-align: center;
+    white-space: nowrap;
+    padding: 6px 12px;
+}
+
+.driver-table tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+    .driver-table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+.driver-table tbody td {
+    padding: 6px 12px;
+    border: 1px solid #e0e0e0;
+}
+
+.col-edit {
+    width: 60px;
+}
+
+.col-name {
+    width: 180px;
+}
+
+.col-regist {
+    width: 130px;
+}
+
+.col-birth {
+    width: 130px;
+}
+
+.col-service {
+    width: 130px;
+}
+
+.col-sort {
+    width: 36px;
+}
+
+/* ===== ボタンエリア ===== */
+.driver-action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.driver-action-left {
+    display: flex;
+    gap: 8px;
+}
+
+.driver-action-right {
+    display: flex;
+    gap: 8px;
+}
+
+.driver-action-btn {
+    font-weight: bold;
+    min-width: 80px;
+}
+
+/* ===== 運転者マスタ新規登録、編集===== */
+
+/* フォームテーブル全体を囲むラッパー */
+.driver-form-wrapper {
+    border: 1px solid #ccc;
+    margin-bottom: 16px;
+}
+
+/* フォームテーブル */
+.driver-form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* ラベルセル（左列） */
+.driver-form-label {
+    width: 160px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    font-weight: normal;
+    white-space: nowrap;
+    text-align: left;
+}
+
+/* 入力値セル（右列） */
+.driver-form-table td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    background-color: #fff;
+}
+
+/* 入力フィールド */
+.driver-form-input {
+    width: 100%;
+    background-color: #fde8c8;
+    border: none;
+    padding: 4px 6px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+.driver-form-input:focus {
+    outline: 2px solid #f5a623;
+    background-color: #fff3e0;
+}

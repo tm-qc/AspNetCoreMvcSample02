@@ -1,0 +1,66 @@
+﻿@model Nissy.ViewModels.SignIn.IndexViewModel
+@{
+    ViewData["HideHeader"] = true;
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/sign-in.css" asp-append-version="true" />
+}
+<div class="login-wrapper">
+    <div class="login-card">
+        <div class="login-title">ログイン</div>
+        <div class="login-subtitle">基盤サンプルアプリ</div>
+
+        <form method="post" asp-controller="SignIn" asp-action="Index">
+            <div class="mb-3">
+                <label class="form-label">
+                    ログインID<span class="required-mark">*</span>
+                </label>
+                <input asp-for="LoginCode" class="form-control" type="text" autocomplete="LoginCode" />
+                <span asp-validation-for="LoginCode" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">
+                    パスワード<span class="required-mark">*</span>
+                </label>
+                <input asp-for="LoginPw" class="form-control" type="password" autocomplete="LoginPw" />
+                <span asp-validation-for="LoginPw" class="text-danger"></span>
+            </div>
+            <div class="form-check mb-1">
+                <input asp-for="RememberMe" class="form-check-input" />
+                <label asp-for="RememberMe" class="form-check-label">
+                    次回から自動でログイン
+                </label>
+            </div>
+            <button type="submit" class="btn btn-login">ログイン</button>
+        </form>
+    </div>
+</div>
+@section Scripts {
+   @* JSはここに書く (直書き or ファイル分けは実際書くときに固める) *@
+   @* <script src="~/js/xx/xx.js" asp-append-version="true"></script> *@
+
+    @* 次回から自動でログインをした場合は30日情報が残るのでそれがある場合は、自動でCookieから取得し入力状態にしておく *@
+    @* ※そもそもブラウザに記憶機能があるからこれいらないかも。コメントアウトで残しとく *@
+    @* <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginCode = localStorage.getItem("loginCode");
+            const rememberMe = localStorage.getItem("rememberMe") === "true";
+
+            if (loginCode) document.querySelector("[name='LoginCode']").value = loginCode;
+            document.querySelector("[name='RememberMe']").checked = rememberMe;
+
+            document.querySelector("form").addEventListener("submit", () => {
+                const code = document.querySelector("[name='LoginCode']").value;
+                const rem = document.querySelector("[name='RememberMe']").checked;
+
+                if (rem) {
+                    localStorage.setItem("loginCode", code);
+                    localStorage.setItem("rememberMe", "true");
+                } else {
+                    localStorage.removeItem("loginCode");
+                    localStorage.setItem("rememberMe", "false");
+                }
+            });
+        });
+    </script> *@
+}

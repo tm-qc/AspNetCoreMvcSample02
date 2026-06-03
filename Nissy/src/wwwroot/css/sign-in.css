@@ -1,0 +1,46 @@
+﻿/*個別ページのCSS*/
+
+.login-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    padding: 48px 40px;
+    width: 420px;
+}
+
+.login-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: #222222;
+    margin-bottom: 4px;
+}
+
+.login-subtitle {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #222222;
+    margin-bottom: 36px;
+}
+
+.btn-login {
+    background-color: #c8b870;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+.btn-login:hover {
+    background-color: #b5a55e;
+    color: #ffffff;
+}

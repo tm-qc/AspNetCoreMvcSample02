@@ -1,0 +1,61 @@
+﻿@* 一覧ページ *@
+@* 運転者マスタ *@
+@model Nissy.ViewModels.Driver.IndexViewModel
+
+@{
+    ViewData["ShowNewButton"] = true;  // 新規登録ボタン表示
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/driver.css" asp-append-version="true" />
+}
+
+@* ===== ページヘッダーブロック ===== *@
+<partial name="_PageHeader"/>
+
+@* ===== メインコンテンツブロック ===== *@
+<div class="driver-main-content">
+
+    @* 件数表示 *@
+    <div class="driver-count">
+        @Model.TotalCount 件中 @Model.DispStart-@Model.DispEnd 件の結果を表示中
+    </div>
+
+    @* ===== ページャー(共通部分ビュー） ===== *@
+    <partial name="_Pager" />
+
+    @* 一覧テーブル *@
+    <div class="driver-table-wrapper">
+        <table class="table driver-table">
+            <thead class="driver-thead">
+                <tr>
+                    <th class="col-edit">編集</th>
+                    <th class="col-name">氏名</th>
+                    <th class="col-regist">運転者登録日</th>
+                    <th class="col-birth">生年月日</th>
+                    <th class="col-service">サービス種別ID</th>
+                    <th class="col-sort">▼</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.items)
+                {
+                    <tr>
+                        <td>
+                            <a asp-controller="Driver" asp-action="Edit" asp-route-id="@item.Id">詳細</a>
+                        </td>
+                        <td>@item.Name</td>
+                        <td>@item.RegistDate</td>
+                        <td>@item.BirthDate</td>
+                        <td>@item.ServiceTypeId</td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    @* JSはここに書く (直書き or ファイル分けは実際書くときに固める) *@
+    @* <script src="~/js/xx/xx.js" asp-append-version="true"></script> *@
+}

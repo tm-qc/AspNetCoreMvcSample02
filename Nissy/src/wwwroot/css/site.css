@@ -1,0 +1,147 @@
+/* 全体共通CSS */
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1 0 auto;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    color: #333333;
+    margin-bottom: 4px;
+}
+
+.required-mark {
+    color: #cc0000;
+    margin-left: 2px;
+}
+
+.form-control {
+    background-color: #e8e8e8;
+    border: none;
+    border-radius: 3px;
+    height: 38px;
+}
+
+.form-control:focus {
+    background-color: #e0e0e0;
+    box-shadow: none;
+    border: 1px solid #b0a070;
+}
+
+.form-check-label {
+    font-size: 0.8rem;
+    color: #555555;
+}
+
+.footer {
+    flex-shrink: 0;
+    width: 100%;
+    white-space: nowrap;
+    background-color: #c8b870;
+    text-align: center;
+    padding: 14px;
+    font-size: 0.8rem;
+    color: #ffffff;
+}
+
+a {
+    color: #0077cc;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* ===== 共通ヘッダー ===== */
+.common-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 24px;
+    border-bottom: 1px solid #dee2e6;
+    background-color: #fff;
+    margin-bottom: 24px;
+}
+
+.common-user-name {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.common-header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.common-nav-btn {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    color: #333;
+    font-size: 0.9rem;
+    padding: 5px 14px;
+}
+
+.common-nav-btn:hover,
+.common-nav-btn:focus {
+    background-color: #f1f3f5;
+    color: #333;
+}
+
+/* ===== 共通パンくず ===== */
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+}
+
+
+/* ===== 共通ページャー ===== */
+.custom-pagination {
+    justify-content: flex-end;
+    gap: 0;
+    margin: 0;
+}
+
+.custom-pagination .page-link {
+    color: #0077cc;
+    border: none;
+    background: transparent;
+    padding: 2px 4px;
+    font-size: 0.9rem;
+    letter-spacing: 0;
+}
+
+.custom-pagination .page-item.active .page-link {
+    color: #0077cc;
+    background: transparent;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.custom-pagination .page-item.disabled .page-link {
+    color: #999;
+    padding: 2px 2px;
+}
+
+.custom-pagination .page-link:hover {
+    text-decoration: underline;
+    background: transparent;
+}

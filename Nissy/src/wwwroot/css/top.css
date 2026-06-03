@@ -1,0 +1,27 @@
+﻿/*個別ページのCSS*/
+
+/* ===== TOP ページ専用CSS ===== */
+
+/* メインエリア */
+.top-main {
+    display: flex;
+    gap: 16px;
+    padding: 40px 24px;
+}
+
+/* メイン青ボタン */
+.top-main-btn {
+    background-color: #1a73e8;
+    color: #fff;
+    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.top-main-btn:hover {
+    background-color: #1558b0;
+    color: #fff;
+}
+
+

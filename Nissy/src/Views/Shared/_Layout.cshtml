@@ -1,0 +1,93 @@
+﻿@{
+    @* DBから受け取り *@
+    var loginUserName = ViewData["LoginUserName"]?.ToString() ?? "";
+}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @* @section Styles{}を読み込むために必要 *@
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    @* ログイン画面ではヘッダーを非表示 *@
+    @* 
+    「is not true」：C# 9.0以降から使えるパターンマッチング構文
+
+    ※パターンマッチング構文キャストしなくても安全らしい。
+    C# 9.0以前は以下のいづれかで型指定でキャストしてたようです。
+
+    - as演算子 + null条件演算子（最もよく使われた）：if ((ViewData["HideHeader"] as bool?) != true)
+    - Equalsメソッド（nullセーフ）：if (!true.Equals(ViewData["HideHeader"]))
+    - nullチェックを明示的に分ける：if (ViewData["HideHeader"] == null || (bool)ViewData["HideHeader"] == false)
+    *@
+    @if (ViewData["HideHeader"] is not true)
+    {
+        <header class="common-header">
+            <div class="common-header-left">
+                @* DBから受け取ったユーザ名を表示(Claimsを参照) *@
+                <span class="common-user-name">@(User.Identity?.Name?.ToString() ?? "")</span>
+            </div>
+            <div class="common-header-right">
+                @* ○○ *@
+                <div class="dropdown">
+                    <button class="btn common-nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        ○○
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">詳細</a></li>
+                        <li><a class="dropdown-item" href="#">一覧</a></li>
+                    </ul>
+                </div>
+                @* △△ *@
+                <div class="dropdown">
+                    <button class="btn common-nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        △△
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">詳細</a></li>
+                    </ul>
+                </div>
+                @* マスタ管理 *@
+                <div class="dropdown">
+                    <button class="btn common-nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        マスタ管理
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">マイページ</a></li>
+                        <li><a class="dropdown-item" asp-controller="Driver" asp-action="Index">運転者</a></li>
+                    </ul>
+                </div>
+                @* ログアウトボタン *@
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    <div>
+                        <form asp-controller="SignIn" asp-action="Logout" method="post" class="dropdown-item p-0">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="dropdown-item">ログアウト</button>
+                        </form>
+                    </div>
+                }
+            </div>
+        </header>
+    }
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+        TEST. All Rights Reserved.
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @* @section Scripts{}を読み込むために必要 *@
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

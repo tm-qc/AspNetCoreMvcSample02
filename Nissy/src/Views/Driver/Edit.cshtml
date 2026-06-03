@@ -1,0 +1,51 @@
+﻿@* 編集ページ *@
+@* 運転者マスタ *@
+
+@* 複数行をformで送信する場合の @model の指定*@
+@* @model IEnumerable<Nissy.Models.ViewModels.Driver.CreateEditViewModel> *@
+
+@* 単一をformで送信する場合の @model の指定*@
+@* @model Nissy.Models.ViewModels.Driver.CreateEditViewModel *@
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/driver.css" asp-append-version="true" />
+}
+
+@* ===== ボタンエリア ===== *@
+<div class="driver-action-row">
+    @* 左側：戻る・登録 *@
+    <div class="driver-action-left">
+        <a asp-controller="Driver" asp-action="Index" class="btn btn-secondary driver-action-btn">戻る</a>
+        <button type="submit" form="driver-form" class="btn btn-warning driver-action-btn">保存</button>
+    </div>
+    @* 右側：削除 *@
+    <div class="driver-action-right">
+        <button type="submit" form="driver-delete-form" class="btn btn-secondary driver-action-btn" onclick="return confirm('削除してよろしいですか？');">削除</button>
+    </div>
+</div>
+
+@* ===== ページヘッダーブロック ===== *@
+<partial name="_PageHeader" />
+
+@* ===== メインコンテンツブロック ===== *@
+<div class="driver-main-content">
+    <form id="driver-form" asp-controller="Driver" asp-action="Edit" asp-route-id="@ViewBag.DriverId" method="post">
+
+        @* ===== フォームテーブル（Create / Edit 共通部分ビュー） ===== *@
+        <partial name="_DriverForm" model="Model" />
+
+    </form>
+    <form 
+        id="driver-delete-form" 
+        asp-controller="Driver" 
+        asp-action="Delete" 
+        asp-route-id="@ViewBag.DriverId" 
+        method="post"
+    >
+    </form>
+</div>
+
+@section Scripts {
+    @* JSはここに書く (直書き or ファイル分けは実際書くときに固める) *@
+    @* <script src="~/js/xx/xx.js" asp-append-version="true"></script> *@
+}
